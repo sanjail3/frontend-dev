@@ -4,7 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useEffect } from "react";
 
 import { useToast } from "@/components/ui/use-toast";
-// import { checkoutCredits } from "@/lib/actions/transaction.action";
+import { checkoutCredits } from "@/lib/actions/transaction.action";
 
 import { Button } from "../ui/button";
 
@@ -12,12 +12,12 @@ const Checkout = ({
   plan,
   amount,
   credits,
-  // buyerId,
+  buyerId,
 }: {
   plan: string;
   amount: number;
   credits: number;
-  // buyerId: string;
+  buyerId: string;
 }) => {
   const { toast } = useToast();
 
@@ -52,10 +52,10 @@ const Checkout = ({
       plan,
       amount,
       credits,
-      // buyerId,
+      buyerId,
     };
 
-    // await checkoutCredits(transaction);
+    await checkoutCredits(transaction);
   };
 
   return (
